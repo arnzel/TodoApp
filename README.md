@@ -11,3 +11,8 @@ Simple Todo App made with play 1.4
 - enter "play run"
 - application appears on localhost:9000
 
+# Troubleshooting
+
+- For installing a play application see here: https://www.playframework.com/documentation/1.4.x/install
+
+
