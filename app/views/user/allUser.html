@@ -1,0 +1,68 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/img/todolist.ico"/>
+
+    <title>All User</title>
+
+    <!-- Le styles -->
+    <link href="/public/stylesheets/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+        padding-top: 60px;
+        /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="span6 offset3">
+            <div class="page-header">
+                <h1>All User</h1>
+            </div>
+            <table class="table" id="users">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                #{list items:users, as:'user'}
+                    #{if user.name != null || user.email != null || user.password != null}
+                    <tr id="${user.id}">
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.password}</td>
+                    </tr>
+                    #{/if}
+                    
+                #{/list}
+                #{else}
+                    <tr>
+                        <td colspan="3">No Users</td>
+                    </tr>
+                #{/else}
+                </tbody>
+            </table>
+            <a href="/user/new" class="btn btn-default">New User</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
