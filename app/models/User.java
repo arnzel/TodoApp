@@ -1,5 +1,6 @@
 package models;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import play.data.validation.Email;
 import play.data.validation.Required;
 import play.data.validation.Unique;
@@ -31,6 +32,11 @@ public class User extends Model {
     @Required
     @Email
     public String email;
-    
+
+    @Required
     public String password;
+    
+    public String toString(){
+        return ReflectionToStringBuilder.toString(this);
+    }
 }
