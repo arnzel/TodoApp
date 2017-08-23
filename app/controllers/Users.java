@@ -1,7 +1,11 @@
 package controllers;
 
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import models.User;
 import play.Logger;
@@ -30,7 +34,7 @@ public class Users extends Controller {
     }
 
     public static void save(@Valid User user, @Valid String confirmationPassword) {
-        System.out.print(user.toString());
+        System.out.println(user.toString());
         if (!user.password.equals(confirmationPassword)) {
             Validation.addError("confirmationPassword","passwords are not the same");
         }
@@ -42,6 +46,15 @@ public class Users extends Controller {
 
         user.save();
         all();
+    }
+    
+    public static void saveJson() {
+    	User newUser = new Gson().fromJson(new InputStreamReader(request.body), User.class);
+    	newUser.save();
+    }
+    
+    public void deleteUser(long id) {
+    	User.delete("id", id);
     }
 
     public void deleteAllUser() {

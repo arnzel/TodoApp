@@ -9,7 +9,9 @@ GET     /                                       Application.index
 GET     /user/new                               Users.newUser
 GET     /user/all/json                          Users.allJson
 POST    /user/save                              Users.save
+POST    /user/save/json                         Users.saveJson
 DELETE  /user/all                               Users.deleteAllUser
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
