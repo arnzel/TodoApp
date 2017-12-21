@@ -3,6 +3,7 @@ package models;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import play.data.validation.Email;
 import play.data.validation.Max;
+import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Model;
@@ -27,17 +28,17 @@ public class User extends Model {
 
     @Unique
     @Required
-    @Max(255)
+    @MaxSize(255)
     public String name;
 
     @Unique
     @Required
     @Email
-    @Max(255)
+    @MaxSize(255)
     public String email;
 
     @Required
-    @Max(255)
+    @MaxSize(255)
     public String password;
     
     public String toString(){
